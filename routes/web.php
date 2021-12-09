@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use Ramsey\Uuid\Codec\OrderedTimeCodec;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +20,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('users.index');
 })->name('dashboard');
+
+Route::get('/makeorder',[OrderController::class,'index'])->name('makeorder');
